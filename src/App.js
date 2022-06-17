@@ -9,17 +9,20 @@ import Tasks from './components/Tasks'
       {
         id:1, 
         text: 'Doctor Appointment',
-        day: '01 July 2022 at 2:20pm'  
+        day: '01 July 2022 at 2:20pm',
+        reminder:0
       }, 
       {
         id:2, 
         text: 'Meeting at School',
-        day: '06 July 2022 at 9:5am'  
+        day: '06 July 2022 at 9:5am',
+        reminder:0  
       }, 
       {
         id:3, 
         text: 'Buy Laundry Equipments',
-        day: '11 July 2022 at 4:00pm'  
+        day: '11 July 2022 at 4:00pm',
+        reminder:0  
       }
     ]
   )
@@ -33,7 +36,10 @@ const deleteTask = (id) => {
 
 // Toggle Reminder
 const toggleReminder = (id) => {
-  console.log('Reminder',id)
+ // console.log('Reminder',id)
+ setTasks(
+  tasks.map((task => task.id===id? ({...task, reminder:!task.reminder}) : task))
+ )
 }
 
  return (
