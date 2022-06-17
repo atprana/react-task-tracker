@@ -24,11 +24,25 @@ import Tasks from './components/Tasks'
     ]
   )
 
+// delete task
+
+const deleteTask = (id) => {
+  // console.log('delete', id)
+  setTasks(tasks.filter((task)=> task.id !==id))
+}
+
+// Toggle Reminder
+const toggleReminder = (id) => {
+  console.log('Reminder',id)
+}
+
  return (
-   <div className=" container">
+    <div className=" container">
        <Header />
-       <Tasks tasks={tasks}/>
-     </div>
+       {tasks.length > 0 ? ( <Tasks tasks={tasks} 
+       onDelete = {deleteTask} 
+       onToggle = {toggleReminder} />) : 'No Tasks to show'}
+    </div>
    );
  }
    export default App
